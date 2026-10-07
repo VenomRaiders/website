@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VenomRaiders — Digital Setup for Cameroonian Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #11193F;
+    --navy-2: #1B2557;
+    --blue: #00B3FB;
+    --blue-dim: #0090C9;
+    --ink: #11193F;
+    --paper: #FBFCFE;
+    --muted: #6B7290;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+  }
+  h1,h2,h3{ font-family:'Archivo', sans-serif; font-weight:800; letter-spacing:-0.01em; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
+  a{ color:inherit; }
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(251,252,254,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(17,25,63,0.08);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto; }
+  .nav img{ height:34px; }
+  .nav-links{ display:flex; gap:28px; font-size:14.5px; font-weight:600; }
+  .nav-links a{ text-decoration:none; color:var(--navy); opacity:0.8; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{
+    background:var(--navy); color:#fff; padding:10px 18px; border-radius:8px;
+    font-size:14px; font-weight:700; text-decoration:none;
+  }
+  @media (max-width:720px){ .nav-links{ display:none; } }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:88px 24px 80px;
+    overflow:hidden;
+    background:var(--paper);
+  }
+  .hero-swoosh{
+    position:absolute; right:260px; top:-60px;
+    width:620px; opacity:0.9; pointer-events:none;
+  }
+
+  @media (max-width:800px){
+    .hero-swoosh{ display: none;}
+  }
+  .hero-inner{ max-width:1120px; margin:0 auto; position:relative; z-index:1; }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow-line .dash{ width:34px; height:3px; background:var(--blue); border-radius:2px; }
+  .eyebrow-line span{ font-size:13.5px; font-weight:600; color:var(--muted); }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 56px);
+    line-height:1.08;
+    max-width:760px;
+    color:var(--navy);
+  }
+  .hero h1 .accent{ color:var(--blue); }
+  .hero p.lead{
+    margin-top:22px; font-size:18px; max-width:560px; color:var(--muted);
+  }
+  .hero-ctas{ margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--blue); color:var(--navy); font-weight:700; font-size:15px;
+    padding:14px 24px; border-radius:10px; text-decoration:none; display:inline-block;
+  }
+  .btn-secondary{
+    border:1.5px solid rgba(17,25,63,0.18); color:var(--navy); font-weight:700; font-size:15px;
+    padding:13px 24px; border-radius:10px; text-decoration:none; display:inline-block;
+  }
+
+  /* PROBLEM STATEMENT STRIP */
+  .strip{
+    background:var(--navy); color:#fff; padding:46px 24px;
+  }
+  .strip-inner{ max-width:1120px; margin:0 auto; display:flex; gap:48px; flex-wrap:wrap; align-items:center; }
+  .strip p{ font-size:19px; max-width:640px; color:rgba(255,255,255,0.92); }
+  .strip p strong{ color:var(--blue); }
+  .strip-stats{ display:flex; gap:36px; }
+  .stat b{ display:block; font-family:'Archivo',sans-serif; font-size:26px; color:var(--blue); }
+  .stat span{ font-size:12.5px; color:rgba(255,255,255,0.65); }
+
+  /* SERVICES */
+  .section{ padding:80px 24px; }
+  .section-head{ max-width:600px; margin-bottom:44px; }
+  .section-head .kicker{ font-size:13.5px; font-weight:700; color:var(--blue-dim); margin-bottom:10px; }
+  .section-head h2{ font-size:32px; color:var(--navy); }
+  .section-head p{ margin-top:12px; color:var(--muted); font-size:15.5px; }
+
+  .services-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px;
+  }
+  .svc-card{
+    border:1px solid rgba(17,25,63,0.09);
+    border-radius:14px; padding:26px;
+    background:#fff;
+  }
+  .svc-card .tag{ font-size:12.5px; font-weight:700; color:var(--blue-dim); }
+  .svc-card h3{ font-size:19px; margin-top:8px; color:var(--navy); }
+  .svc-card p{ font-size:14px; color:var(--muted); margin-top:8px; }
+  .svc-card .price{ margin-top:16px; font-family:'Archivo',sans-serif; font-weight:800; font-size:18px; color:var(--navy); }
+  .svc-card .price span{ font-size:12px; font-weight:500; color:var(--muted); font-family:'Inter',sans-serif; }
+
+  /* PACKAGES */
+  .packages{ background:#F1F6FA; }
+  .pkg-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:22px; }
+  .pkg-card{
+    background:#fff; border-radius:16px; padding:30px;
+    border:1px solid rgba(17,25,63,0.08);
+    display:flex; flex-direction:column;
+  }
+  .pkg-card.featured{
+    background:var(--navy); color:#fff; border:none;
+    box-shadow:0 20px 40px rgba(17,25,63,0.25);
+  }
+  .pkg-card h3{ font-size:21px; }
+  .pkg-card.featured h3{ color:#fff; }
+  .pkg-price{ font-family:'Archivo',sans-serif; font-weight:900; font-size:30px; margin-top:10px; color:var(--navy); }
+  .pkg-card.featured .pkg-price{ color:var(--blue); }
+  .pkg-was{ font-size:13px; color:var(--muted); text-decoration:line-through; }
+  .pkg-card.featured .pkg-was{ color:rgba(255,255,255,0.55); }
+  .pkg-list{ list-style:none; margin:18px 0 24px; flex-grow:1; }
+  .pkg-list li{ font-size:14.5px; padding:6px 0 6px 22px; position:relative; }
+  .pkg-list li::before{ content:"✓"; position:absolute; left:0; color:var(--blue); font-weight:700; }
+  .pkg-card.featured .pkg-list li{ color:rgba(255,255,255,0.9); }
+  .pkg-badge{
+    align-self:flex-start; background:rgba(0,179,251,0.12); color:var(--blue-dim);
+    font-size:12px; font-weight:700; padding:5px 10px; border-radius:100px; margin-bottom:14px;
+  }
+  .pkg-card.featured .pkg-badge{ background:rgba(0,179,251,0.18); color:var(--blue); }
+
+  /* WHY / ABOUT */
+  .why-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
+  .why-grid img{ width:100%; max-width:340px; justify-self:center; }
+  .why-copy h2{ font-size:30px; color:var(--navy); margin-bottom:16px; }
+  .why-copy p{ color:var(--muted); font-size:15.5px; margin-bottom:14px; }
+  @media (max-width:820px){ .why-grid{ grid-template-columns:1fr; } .why-grid img{ order:-1; max-width:220px; } }
+
+  /* CONTACT / FOOTER */
+  footer{ background:var(--navy); color:#fff; padding:70px 24px 32px; }
+  .footer-cta{ text-align:center; max-width:600px; margin:0 auto 50px; }
+  .footer-cta h2{ font-size:28px; color:#fff; }
+  .footer-cta p{ margin-top:12px; color:rgba(255,255,255,0.7); font-size:15px; }
+  .footer-cta .btn-primary{ margin-top:22px; }
+  .footer-bottom{
+    max-width:1120px; margin:0 auto; padding-top:26px;
+    border-top:1px solid rgba(255,255,255,0.12);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  .footer-bottom img{ height:24px; opacity:0.9; }
+  .footer-bottom span{ font-size:13px; color:rgba(255,255,255,0.5); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img src="./images/logo-dark.png" alt="VenomRaiders Logo - Dark Variation" >
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/237XXXXXXXXX" target="_blank">Chat on WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="./images/vr-swoosh.png" alt="VR Swoosh Logo" class="hero-swoosh">
+  <div class="hero-inner">
+    <div class="eyebrow-line"><span class="dash"></span><span>Digital services, built for Cameroonian businesses</span></div>
+    <h1>Your business deserves to be <span class="accent">found online</span> — not just running quietly offline.</h1>
+    <p class="lead">VenomRaiders sets up and builds the digital presence your business is missing: WhatsApp, TikTok, Instagram, Facebook, websites, and custom software — done properly, done fast.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://wa.me/237XXXXXXXXX" target="_blank">Get started on WhatsApp</a>
+      <a class="btn-secondary" href="#services">See services</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <p>Most small businesses and schools in Cameroon still have <strong>little to no digital presence</strong> — and it's costing them customers every day.</p>
+    <div class="strip-stats">
+      <div class="stat"><b>6</b><span>Core services</span></div>
+      <div class="stat"><b>1-2</b><span>Days, most setups</span></div>
+      <div class="stat"><b>3</b><span>Bundle packages</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Services</div>
+      <h2>Pick what your business needs</h2>
+      <p>Every service is fixed-price and fast — no long back-and-forth before you know what it costs.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="tag">WhatsApp</div>
+        <h3>WhatsApp Business Setup</h3>
+        <p>Catalog, auto-replies, business hours — set up properly.</p>
+        <div class="price">10,000 <span>XAF · 1 day</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="tag">TikTok</div>
+        <h3>TikTok Business Setup</h3>
+        <p>Business account, bio, hashtags, first videos structured right.</p>
+        <div class="price">15,000 <span>XAF · 1-2 days</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="tag">Instagram</div>
+        <h3>Instagram Business Setup</h3>
+        <p>Business account, bio, highlights, shop link if you sell products.</p>
+        <div class="price">15,000 <span>XAF · 1-2 days</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="tag">Facebook</div>
+        <h3>Facebook Page Setup</h3>
+        <p>Page setup, about section, contact and catalog.</p>
+        <div class="price">12,000 <span>XAF · 1 day</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="tag">Content</div>
+        <h3>Video Editing</h3>
+        <p>Clean cuts, captions, effects for a single post.</p>
+        <div class="price">5,000 <span>XAF · per video</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="tag">Development</div>
+        <h3>Websites &amp; Apps</h3>
+        <p>Custom websites and desktop applications, built to spec.</p>
+        <div class="price">From 150,000 <span>XAF</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section packages" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Packages</div>
+      <h2>Or save with a bundle</h2>
+      <p>Most businesses need more than one platform — bundling saves you money and gets it all done at once.</p>
+    </div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card">
+        <span class="pkg-badge">Save ~12%</span>
+        <h3>Starter Presence</h3>
+        <div class="pkg-price">22,000 XAF</div>
+        <div class="pkg-was">25,000 XAF separately</div>
+        <ul class="pkg-list">
+          <li>WhatsApp Business setup</li>
+          <li>One platform of your choice</li>
+          <li>TikTok, Instagram, or Facebook</li>
+        </ul>
+        <a class="btn-secondary" href="https://wa.me/237XXXXXXXXX" target="_blank">Choose this</a>
+      </div>
+
+      <div class="pkg-card featured">
+        <span class="pkg-badge">Save ~23% · Most popular</span>
+        <h3>Full Digital Presence</h3>
+        <div class="pkg-price">40,000 XAF</div>
+        <div class="pkg-was">52,000 XAF separately</div>
+        <ul class="pkg-list">
+          <li>WhatsApp Business setup</li>
+          <li>TikTok + Instagram + Facebook</li>
+          <li>Be visible everywhere at once</li>
+        </ul>
+        <a class="btn-primary" href="https://wa.me/237XXXXXXXXX" target="_blank">Choose this</a>
+      </div>
+
+      <div class="pkg-card">
+        <span class="pkg-badge">Save ~13%</span>
+        <h3>Business Launch</h3>
+        <div class="pkg-price">165,000 XAF</div>
+        <div class="pkg-was">190,000 XAF separately</div>
+        <ul class="pkg-list">
+          <li>Full Digital Presence bundle</li>
+          <li>Plus a complete business website</li>
+          <li>Everything, start to finish</li>
+        </ul>
+        <a class="btn-secondary" href="https://wa.me/237XXXXXXXXX" target="_blank">Choose this</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap why-grid">
+    <div class="why-copy">
+      <h2>Why VenomRaiders exists</h2>
+      <p>Most small businesses — and even schools — in Cameroon are still running without any real online presence. Not because they don't need one, but because setting it up properly takes time most owners don't have.</p>
+      <p>VenomRaiders started as a software development business, and still builds custom websites and desktop applications. But the bigger, more immediate problem we kept running into was simpler: businesses that just needed to be found online, quickly and properly.</p>
+      <p>So that's what we do — fast, fixed-price digital setup, backed by full custom development when a business is ready for it.</p>
+    </div>
+    <img src="./images/logo-dark.png" alt="VR logo image - Dark Variation">
+  </div>
+</section>
+
+<footer>
+  <div class="footer-cta">
+    <h2>Ready to get your business online?</h2>
+    <p>Message us on WhatsApp — tell us what you need, and we'll get back to you the same day.</p>
+    <a class="btn-primary" href="https://wa.me/237XXXXXXXXX" target="_blank">Chat on WhatsApp</a>
+  </div>
+  <div class="footer-bottom">
+    <img src="./images/logo-white.png" alt="VR logo image - White Variation">
+    <span>© 2026 VenomRaiders. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
